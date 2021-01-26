@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyq.blog.mapper.system.extmapper.BlogRoleExtMapper">
+    <resultMap id="BaseResultMap" type="com.zyq.blog.model.system.BlogRole">
+        <id column="role_id" jdbcType="BIGINT" property="roleId" />
+        <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+    </resultMap>
+
+    <select id="getRoles" parameterType="string" resultMap="BaseResultMap">
+        SELECT
+        br.role_id,
+        br.role_name,
+        br.remark
+        FROM blog_role br
+        LEFT JOIN blog_user_role bur
+        ON br.role_id = bur.role_id
+        LEFT JOIN blog_user bu
+        ON bur.user_id = bu.user_id
+        WHERE
+        bu.user_name = #{userName};
+    </select>
+</mapper>

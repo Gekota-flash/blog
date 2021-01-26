@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zyq.server.mapper.system.BlogUserRoleMapper">
-  <resultMap id="BaseResultMap" type="com.zyq.server.model.system.BlogUserRole">
+<mapper namespace="com.zyq.blog.mapper.system.BlogUserRoleMapper">
+  <resultMap id="BaseResultMap" type="com.zyq.blog.model.system.BlogUserRole">
     <id column="user_role_id" jdbcType="BIGINT" property="userRoleId" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="role_id" jdbcType="BIGINT" property="roleId" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List">
     user_role_id, user_id, role_id
   </sql>
-  <select id="selectByExample" parameterType="com.zyq.server.model.system.BlogUserRoleExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.zyq.blog.model.system.BlogUserRoleExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -92,19 +92,19 @@
     delete from blog_user_role
     where user_role_id = #{userRoleId,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.zyq.server.model.system.BlogUserRoleExample">
+  <delete id="deleteByExample" parameterType="com.zyq.blog.model.system.BlogUserRoleExample">
     delete from blog_user_role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.zyq.server.model.system.BlogUserRole">
+  <insert id="insert" parameterType="com.zyq.blog.model.system.BlogUserRole">
     insert into blog_user_role (user_role_id, user_id, role_id
       )
     values (#{userRoleId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{roleId,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.zyq.server.model.system.BlogUserRole">
+  <insert id="insertSelective" parameterType="com.zyq.blog.model.system.BlogUserRole">
     insert into blog_user_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userRoleId != null">
@@ -129,7 +129,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.zyq.server.model.system.BlogUserRoleExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.zyq.blog.model.system.BlogUserRoleExample" resultType="java.lang.Long">
     select count(*) from blog_user_role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -161,7 +161,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zyq.server.model.system.BlogUserRole">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zyq.blog.model.system.BlogUserRole">
     update blog_user_role
     <set>
       <if test="userId != null">
@@ -173,7 +173,7 @@
     </set>
     where user_role_id = #{userRoleId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zyq.server.model.system.BlogUserRole">
+  <update id="updateByPrimaryKey" parameterType="com.zyq.blog.model.system.BlogUserRole">
     update blog_user_role
     set user_id = #{userId,jdbcType=BIGINT},
       role_id = #{roleId,jdbcType=BIGINT}

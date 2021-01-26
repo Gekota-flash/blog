@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyq.blog.mapper.system.extmapper.BlogPermissionExtMapper">
+    <resultMap id="BaseResultMap" type="com.zyq.blog.model.system.BlogPermission">
+        <id column="permission_id" jdbcType="BIGINT" property="permissionId" />
+        <result column="permission_name" jdbcType="VARCHAR" property="permissionName" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+    </resultMap>
+
+    <select id="getPermissions" parameterType="java.util.List" resultMap="BaseResultMap">
+        SELECT
+        DISTINCT
+        bp.permission_id,
+        bp.permission_name,
+        bp.remark
+        FROM blog_permission bp
+        LEFT JOIN blog_role_permission brp
+        ON bp.permission_id = brp.permission_id
+        <if test="roleList != null and roleList.size > 0">
+        where
+        brp.role_name in
+        <foreach collection="roleList" item="role" index="index" open="(" separator="," close=")">
+            #{role}
+        </foreach>
+        </if>
+    </select>
+</mapper>

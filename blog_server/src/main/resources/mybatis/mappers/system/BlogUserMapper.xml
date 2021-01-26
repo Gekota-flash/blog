@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zyq.server.mapper.system.BlogUserMapper">
-  <resultMap id="BaseResultMap" type="com.zyq.server.model.system.BlogUser">
+<mapper namespace="com.zyq.blog.mapper.system.BlogUserMapper">
+  <resultMap id="BaseResultMap" type="com.zyq.blog.model.system.BlogUser">
     <id column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
@@ -75,7 +75,7 @@
     user_id, user_name, user_password, birthday, email, card_id, display_name, create_time, 
     user_status, ramark
   </sql>
-  <select id="selectByExample" parameterType="com.zyq.server.model.system.BlogUserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.zyq.blog.model.system.BlogUserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -100,13 +100,13 @@
     delete from blog_user
     where user_id = #{userId,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.zyq.server.model.system.BlogUserExample">
+  <delete id="deleteByExample" parameterType="com.zyq.blog.model.system.BlogUserExample">
     delete from blog_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.zyq.server.model.system.BlogUser">
+  <insert id="insert" parameterType="com.zyq.blog.model.system.BlogUser">
     insert into blog_user (user_id, user_name, user_password, 
       birthday, email, card_id, 
       display_name, create_time, user_status, 
@@ -116,7 +116,7 @@
       #{displayName,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, #{userStatus,jdbcType=CHAR}, 
       #{ramark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.zyq.server.model.system.BlogUser">
+  <insert id="insertSelective" parameterType="com.zyq.blog.model.system.BlogUser">
     insert into blog_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -183,7 +183,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.zyq.server.model.system.BlogUserExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.zyq.blog.model.system.BlogUserExample" resultType="java.lang.Long">
     select count(*) from blog_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -243,7 +243,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zyq.server.model.system.BlogUser">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zyq.blog.model.system.BlogUser">
     update blog_user
     <set>
       <if test="userName != null">
@@ -276,7 +276,7 @@
     </set>
     where user_id = #{userId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zyq.server.model.system.BlogUser">
+  <update id="updateByPrimaryKey" parameterType="com.zyq.blog.model.system.BlogUser">
     update blog_user
     set user_name = #{userName,jdbcType=VARCHAR},
       user_password = #{userPassword,jdbcType=VARCHAR},
@@ -289,7 +289,7 @@
       ramark = #{ramark,jdbcType=VARCHAR}
     where user_id = #{userId,jdbcType=BIGINT}
   </update>
-  <resultMap id="BaseResultMap" type="com.zyq.server.model.system.BlogUser">
+  <resultMap id="BaseResultMap" type="com.zyq.blog.model.system.BlogUser">
     <id column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
@@ -315,7 +315,7 @@
     delete from blog_user
     where user_id = #{userId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.zyq.server.model.system.BlogUser">
+  <insert id="insert" parameterType="com.zyq.blog.model.system.BlogUser">
     insert into blog_user (user_id, user_name, user_password, 
       birthday, email, card_id, 
       display_name, create_time, user_status, 
@@ -325,7 +325,7 @@
       #{displayName,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, #{userStatus,jdbcType=CHAR}, 
       #{ramark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.zyq.server.model.system.BlogUser">
+  <insert id="insertSelective" parameterType="com.zyq.blog.model.system.BlogUser">
     insert into blog_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -392,7 +392,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zyq.server.model.system.BlogUser">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zyq.blog.model.system.BlogUser">
     update blog_user
     <set>
       <if test="userName != null">
@@ -425,7 +425,7 @@
     </set>
     where user_id = #{userId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zyq.server.model.system.BlogUser">
+  <update id="updateByPrimaryKey" parameterType="com.zyq.blog.model.system.BlogUser">
     update blog_user
     set user_name = #{userName,jdbcType=VARCHAR},
       user_password = #{userPassword,jdbcType=VARCHAR},

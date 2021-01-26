@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zyq</groupId>
     <artifactId>server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>server</name>
-    <description>Demo project for Spring Boot</description>
+    <version>0.0.2-SNAPSHOT</version>
+    <name>blog</name>
+    <description>Project Blog</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -118,7 +118,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.zyq.server.ServerApplication</mainClass>
+                    <mainClass>com.zyq.blog.BlogApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
